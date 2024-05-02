@@ -5,6 +5,7 @@ import {Contact} from './Pages/Contact';
 import {Services} from './Pages/Services';
 import {Register} from './Pages/Register';
 import {Login} from './Pages/Login';
+import { Navbar } from './components/Navbar';
 
 
 const App = () => {
@@ -12,6 +13,7 @@ const App = () => {
     <>
 
       <BrowserRouter>
+      <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
