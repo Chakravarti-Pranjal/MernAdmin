@@ -50,19 +50,19 @@ const login = async (req, res) => {
         console.log(userExist);
 
         if(!userExist){
-            return res.status(400).json({msg : "Invalid Credentials"});
+            return res.status(400).json({message : "Invalid Credentials"});
         }
 
         const user = await bcrypt.compare(password, userExist.password);
 
         if(user){
             res.status(200).json({
-                msg : "Login Successful",
+                message : "Login Successful",
                 token : await userExist.generateToken(),
                 userId : userExist._id.toString(),
             });
         }else{
-            res.status(400).json({msg : "Invalid email or password"});
+            res.status(400).json({message : "Invalid email or password"});
         }
 
     } catch (error) {
